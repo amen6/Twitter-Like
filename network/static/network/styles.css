@@ -1,0 +1,68 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: 3px;
+  text-align: center;
+  margin: -3px auto 18px auto;
+}
+.post h6 {
+  opacity: 0.7;
+}
+.post-head {
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: gray;
+  background: #e0e0d1;
+}
+.post-head a{
+  text-decoration: none;
+  font-size: 35px;
+  color: black;
+}
+.post-footer {
+  margin: 0 auto;
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-between;
+}
+#add-text {
+  margin: auto;
+  width: 60%;
+  height: 100px;
+}
+.button-div {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.delete {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 10%;
+}
+.card{
+    margin-bottom: 13px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: none;
+}
+.followers {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.follow-button {
+    margin: 0 auto;
+}
+.like{
+  cursor: pointer;
+}

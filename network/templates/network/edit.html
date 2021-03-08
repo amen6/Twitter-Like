@@ -1,0 +1,16 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+  {% if request.user == posts.user %}
+      <form  method="post" action="{% url 'edit' id=posts.id %}">
+        {% csrf_token %}
+        {{write}}
+        <div class="button-div">
+          <input type="submit" class="btn btn-dark" id="submit" value="Edit">
+        </div>
+      </form>
+    {% else %}
+        <h1>You cant edit this post</h1>
+  {% endif %}
+{% endblock %}

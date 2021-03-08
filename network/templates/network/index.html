@@ -1,0 +1,69 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <form  method="post" action="{% url 'addpost' %}">
+      {% csrf_token %}
+      {{write}}
+      <div class="button-div">
+        <input type="submit" class="btn btn-dark" id="submit" value="Post">
+      </div>
+    </form>
+    {% for post in posts %}
+      <div class="post">
+        <div class="post-head">
+          <a href="/profile/{{post.user}}" >{{post.user}}</a>
+        </div>
+        <h3>{{post.text}}</h3>
+        {% if request.user in post.likes.all %}
+           <h4 ><span style="color:red; font-size:25px" class="like" onclick="like({{post.id}})">&hearts;</span> {{post.likes.all.count}}</h4>
+           <h6>{{post.date}}{% if post.edited == True %} <span style="opacity:0.7;">Edited</span>{% endif %}</h6>
+           {% if request.user == post.user %}
+             <div class="post-footer">
+               <div><a href="/edit/{{post.id}}">Edit</a></div>
+               <div><a href="/delete/{{post.id}}">Delete</a></div>
+             </div>
+           {% endif %}
+           {% else %}
+              <h4 ><span style="color:black; font-size:25px" class="like" onclick="like({{post.id}})">&hearts;</span> {{post.likes.all.count}}</h4>
+              <h6>{{post.date}}{% if post.edited == True %} <span style="opacity:0.7;">Edited</span>{% endif %}</h6>
+              {% if request.user == post.user %}
+                <div class="post-footer">
+                  <div><a href="/edit/{{post.id}}">Edit</a></div>
+                  <div><a href="/delete/{{post.id}}">Delete</a></div>
+                </div>
+              {% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class="container">
+           <ul class="pagination justify-content-center">
+               {% if page_obj.has_previous %}
+                   <li class="page-item"><a href="?page=1" class="page-link">&laquo; First</a></li>
+                   <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a></li>
+               {% else %}
+               <li class="page-item disabled"><a class="page-link">&laquo; First</a></li>
+               <li class="page-item disabled"><a class="page-link">Previous</a></li>
+               {% endif %}
+
+
+               {% if page_obj.number %}
+               <li class="page-item"><a class="page-link" href="?page={{page_obj.number}}">{{ page_obj.number }}</a></li>
+               {% else %}
+               <li class="page-item"><a class="page-link">0</a></li>
+               {% endif %}
+               {% if page_obj.has_next %}
+               <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">Next</a></li>
+               <li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">Last &raquo;</a></li>
+               {% else %}
+               <li class="page-item disabled"><a class="page-link">Next</a></li>
+               <li class="page-item disabled"><a class="page-link">Last &raquo;</a></li>
+               {% endif %}
+           </ul>
+       </div>
+{% endblock %}
+{% block test %}
+ <script type="text/javascript" src="{% static 'network/like.js' %}">
+
+ </script>
+{% endblock %}
