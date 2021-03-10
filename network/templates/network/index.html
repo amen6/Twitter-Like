@@ -16,7 +16,8 @@
         </div>
         <h3>{{post.text}}</h3>
         {% if request.user in post.likes.all %}
-           <h4 ><span style="color:red; font-size:25px" class="like" onclick="like({{post.id}})">&hearts;</span> {{post.likes.all.count}}</h4>
+           <h4 ><span style="color:red; font-size:25px" class="like" data-id="{{post.id}}" id="{{post.id}}" data-total="{{post.likes.all.count}}"  data-value="Unlike">&hearts;</span>
+                <span id="liked{{post.id}}">{{post.likes.all.count}}</span></h4>
            <h6>{{post.date}}{% if post.edited == True %} <span style="opacity:0.7;">Edited</span>{% endif %}</h6>
            {% if request.user == post.user %}
              <div class="post-footer">
@@ -25,7 +26,8 @@
              </div>
            {% endif %}
            {% else %}
-              <h4 ><span style="color:black; font-size:25px" class="like" onclick="like({{post.id}})">&hearts;</span> {{post.likes.all.count}}</h4>
+              <h4 ><span style="color:black; font-size:25px" class="like" data-id="{{post.id}}" id="{{post.id}}" data-total="{{post.likes.all.count}}"  data-value="Like" >&hearts;</span>
+                  <span id="liked{{post.id}}">{{post.likes.all.count}}</span></h4>
               <h6>{{post.date}}{% if post.edited == True %} <span style="opacity:0.7;">Edited</span>{% endif %}</h6>
               {% if request.user == post.user %}
                 <div class="post-footer">

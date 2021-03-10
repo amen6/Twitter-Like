@@ -180,10 +180,10 @@ def delete_post(request, id):
 @login_required(login_url='/login')
 @csrf_exempt
 def like(request):
-    if request.method == "POST":
+    if request.method == 'GET':
         try:
             user = request.user
-            id = request.POST.get('id')
+            id = request.GET['id']
             posts = post.objects.get(id=id)
             if user in posts.likes.all():
                 posts.likes.remove(user)
