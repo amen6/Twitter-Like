@@ -6,16 +6,6 @@
 
 ---
 
-### Table of contents
-Headers location reference.
-
-- [Description](#description)
-- [How To Use](#how-to-use)
-- [What have i used](#what-i-have-used)
-- [Images](https://github.com/amen6/network/tree/main/Images)
-
----
-
 ## Description
 
  Network is a Twitter-like social network website which users post and interact with posts. Registered users can follow others users, like posts, and edit and delete his own post. Unregistered users can only read posts.
