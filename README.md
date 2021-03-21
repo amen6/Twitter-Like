@@ -1,4 +1,4 @@
-# Network
+# Twitter like
 
 ![Project Image](Images/Home.png)
 
@@ -8,7 +8,7 @@
 
 ## Description
 
- Network is a Twitter-like social network website which users post and interact with posts. Registered users can follow others users, like posts, and edit and delete his own post. Unregistered users can only read posts.
+ The Twitter-like social network is a website which users post and interact with posts. Registered users can follow others users, like posts, and edit and delete his own post. Unregistered users can only read posts.
 
 #### What i have used
 
@@ -19,7 +19,7 @@
 - Django
 - Bootstrap
 
-[Back To The Top](#network)
+[Back To The Top](#twitter-like)
 
 ---
 
@@ -49,6 +49,6 @@
 
     - User can **Edit** his own post by clicking on the `Edit` button in his post. After editing a post, an **edited** word will appear on this post so people can know that this post was edited.
 
-[Back To The Top](#network)
+[Back To The Top](#twitter-like)
 
 ---
